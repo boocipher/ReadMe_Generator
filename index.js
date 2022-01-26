@@ -98,7 +98,11 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(answers) {
+    fs.writeFile('./generatedFiles/README.md', generateMarkdown(answers), (err) => {
+        err ? console.log(err) : console.log('README.md has been generated!')
+    });
+}
 
 // TODO: Create a function to initialize app
 function init() {
