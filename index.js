@@ -8,7 +8,7 @@ const generateMarkdown = require('./utils/generateMarkdown')
 // WHEN I enter a description, installation instructions, usage information, 
 // contribution guidelines, and test instructions
 // THEN this information is added to the sections of the README entitled 
-// Description, Installation, Usage, Contributing, and Tests
+// Description, Installation, Usage, Contributing, Tests, and Questions
 // a badge for that license is added near the top of the README and a notice 
 // is added to the section of the README entitled License 
 // that explains which license the application is covered under
@@ -26,7 +26,7 @@ const questions = [
     {
         type: 'input',
         name: 'about',
-        message: 'What is your project about? Start your statement with: [Project Title] is a'
+        message: 'What is your project about? You will be asked to describe your motivation at the next step, do not add it here. Start your statement with: [Project Title] is a'
     },
     {
         type: 'input',
@@ -70,12 +70,12 @@ const questions = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'Please provide instructions for those who would like to contribute to your project'
+        message: 'Please provide instructions for those who would like to contribute to your project:'
     },
     {
         type: 'input',
         name: 'testing',
-        message: 'Please specify test instructions'
+        message: 'Please specify test instructions:'
     },
     {
         type: 'checkbox',
@@ -99,6 +99,9 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(answers) {
+    if (!fs.existsSync("generatedFiles")){
+        fs.mkdirSync("generatedFiles");
+    }
     fs.writeFile('./generatedFiles/README.md', generateMarkdown(answers), (err) => {
         err ? console.log(err) : console.log('README.md has been generated!')
     });
