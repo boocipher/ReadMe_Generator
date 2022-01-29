@@ -78,24 +78,21 @@ const questions = [
         name: 'testing',
         message: 'Please specify test instructions:'
     },
-    {
-        type: 'checkbox',
-        name: 'contact',
-        message: 'Select how you prefer to be contacted',
-        choices: ['GitHub', 'Email']
-    },
+    // {
+    //     type: 'checkbox',
+    //     name: 'contact',
+    //     message: 'Select how you prefer to be contacted',
+    //     choices: ['GitHub', 'Email']
+    // },
     {
         type: 'input',
         name: 'gitHub',
-        message: 'Please enter your GitHub username',
-        // checks if the 'contact' Q is answered === true and asks this Q
-        when: (answers) => answers.contact.includes('GitHub'),
+        message: 'Please enter your GitHub username'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter your email',
-        when: (answers) => answers.contact.includes('Email'),
+        message: 'Please enter your email'
     },
 ];
 

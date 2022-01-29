@@ -39,9 +39,19 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  let section
-  
+  if(license !== 'No License') {
+    return `## License
 
+This project is licensed under ${license} license.`
+  }
+  return ``;
+}
+
+function renderLicenseContent(license) {
+  if(license !== 'No License') {
+    return `* [License](#license)`
+  }
+  return ``;
 }
 
 // TODO: Create a function to render the installation section
@@ -62,32 +72,43 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  [${renderLicenseBadge(data.license)}](${renderLicenseLink(data.license)})
+[${renderLicenseBadge(data.license)}](${renderLicenseLink(data.license)})
 
-  ## Description
-  ${data.about} <br>
-  ${data.motivation}
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+${renderLicenseContent(data.license)}
+* [Tests](#tests)
+* [Questions](#questions)
 
-  ## Installation
-  In order to run **${data.title}** you must have ${data.packageName} installed.
-  You can download it from [${data.packageLink}](${data.packageLink})<br>
-  Run this code to install the package <br> \`\`\`${data.packageCode}\`\`\`
+## Description
+${data.about} <br>
+${data.motivation}
 
-  ## Usage
-  To invoke the application, enter the following command in your terminal or command prompt <br>
-  \`\`\`${data.invokeCode}\`\`\`
+## Installation
+In order to run **${data.title}** you must have ${data.packageName} installed.
+You can download it from [${data.packageLink}](${data.packageLink})<br>
+Run this code to install the package <br> \`\`\`${data.packageCode}\`\`\`
 
-  ## Contributing
-  Please follow these guidelines if you want to contribute to this project. <br>
-  ${data.contribution}
+## Usage
+To invoke the application, enter the following command in your terminal or command prompt <br>
+\`\`\`${data.invokeCode}\`\`\`
 
-  ## Tests
-  Below are the instructions for application testing. <br>
-  ${data.testing}
+## Contributing
+Please follow these guidelines if you want to contribute to this project. <br>
+${data.contribution}
 
-  ## Questions
-  Any questions? You can reach me at
-  ${data.contact}
+${renderLicenseSection(data.license)}
+
+## Tests
+Below are the instructions for application testing. <br>
+${data.testing}
+
+## Questions
+Any questions? You can reach me at
+GitHub: [${data.gitHub}](https://github.com/${data.gitHub})<br>
+Email: ${data.email}
 
 `;
 }
