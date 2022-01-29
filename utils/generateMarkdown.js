@@ -1,5 +1,8 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+
+const { title } = require("process");
+
 // License badges and links thanks to https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
 function renderLicenseBadge(license) {
   let badge
@@ -37,8 +40,13 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   let section
+  
 
 }
+
+// TODO: Create a function to render the installation section
+
+
 
 // TODO: Create a function to generate markdown for README
 // THEN this information is added to the sections of the README entitled 
@@ -56,17 +64,30 @@ function generateMarkdown(data) {
 
   [${renderLicenseBadge(data.license)}](${renderLicenseLink(data.license)})
 
-  # ${data.description}
+  ## Description
+  ${data.about} <br>
+  ${data.motivation}
 
-  # ${data.installation}
+  ## Installation
+  In order to run **${data.title}** you must have ${data.packageName} installed.
+  You can download it from [${data.packageLink}](${data.packageLink})<br>
+  Run this code to install the package <br> \`\`\`${data.packageCode}\`\`\`
 
-  # ${data.usage}
+  ## Usage
+  To invoke the application, enter the following command in your terminal or command prompt <br>
+  \`\`\`${data.invokeCode}\`\`\`
 
-  # ${data.contributing}
+  ## Contributing
+  Please follow these guidelines if you want to contribute to this project. <br>
+  ${data.contribution}
 
-  # ${data.tests}
+  ## Tests
+  Below are the instructions for application testing. <br>
+  ${data.testing}
 
-  # ${data.questions}
+  ## Questions
+  Any questions? You can reach me at
+  ${data.contact}
 
 `;
 }
