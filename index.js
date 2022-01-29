@@ -42,6 +42,7 @@ const questions = [
         type: 'input',
         name: 'packageName',
         message: 'What is the name of the package that has to be installed?',
+        // checks if the 'preparation' Q is answered === true and then asks this Q
         when: (answers) => answers.preparation === true,
     },
     {
@@ -87,6 +88,7 @@ const questions = [
         type: 'input',
         name: 'gitHub',
         message: 'Please enter your GitHub username',
+        // checks if the 'contact' Q is answered === true and asks this Q
         when: (answers) => answers.contact.includes('GitHub'),
     },
     {
@@ -99,6 +101,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(answers) {
+    // checks if we already have generatedFiles dir
     if (!fs.existsSync("generatedFiles")){
         fs.mkdirSync("generatedFiles");
     }
@@ -111,6 +114,5 @@ function writeToFile(answers) {
 function init() {
     inquirer.prompt(questions).then(writeToFile)
 }
-
-// Function call to initialize app
+// Function call
 init();
