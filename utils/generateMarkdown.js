@@ -102,7 +102,7 @@ ${data.contribution}
 ${renderLicenseSection(data.license)}
 
 ## Tests
-Below are the instructions for application testing. <br>
+If available, you can find the instructions for application testing below. <br>
 ${data.testing}
 
 ## Questions
