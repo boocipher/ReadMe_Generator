@@ -96,13 +96,13 @@ To invoke the application, enter the following command in your terminal or comma
 \`\`\`${data.invokeCode}\`\`\`
 
 ## Contributing
-Please follow these guidelines if you want to contribute to this project. <br>
+Please follow these guidelines if you want to contribute to this project: <br>
 ${data.contribution}
 
 ${renderLicenseSection(data.license)}
 
 ## Tests
-If available, you can find the instructions for application testing below. <br>
+Here is some advice regarding the application testing. <br>
 ${data.testing}
 
 ## Questions
